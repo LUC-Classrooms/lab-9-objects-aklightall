@@ -62,7 +62,24 @@ this.mySprite = function(){
     push(); // create a transparency layer for the object
     translate(this.x, this.y); //shift the canvas (0,0) to the object location
     fill(this.color); // set the color
-    ellipse(0, 0, this.d/2, this.d);
+    // Draw face
+    ellipse(0, 0, this.d);
+
+    // Draw eyes 
+    fill (255)
+    ellipse(-this.d / 6, -this.d / 6, this.d / 6,)
+    ellipse (this.d / 6, -this.d / 6, this.d / 6,)
+
+    // Draw mouth
+    stroke (0)
+    strokeWeight (2)
+    beginShape()
+    for (let i = PI / 6; i <= 5 * PI / 6; i += 0.05) {
+      let x = cos(i) * this.d / 3;
+      let y = sin(i) * this.d / 4;
+      vertex(x, y);
+    }
+    endShape();
     // note that when you want to use the objects properties, you need to use "this"
     // add more drawing code to make your image a little more complex
 
